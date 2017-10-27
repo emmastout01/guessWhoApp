@@ -15,8 +15,10 @@
         <p>{{guessWho.message}}</p>
         <input ng-model="guessWho.name" type="text">
         <input ng-model="guessWho.github" type="text">
-        <button ng-click="guessWho.submit(guessWho.name)">Submit</button>
-        <div ng-repeat="person in guessWho.persons"><img ng-src="https://github.com/{{person.github}}.png?size=80"></div>
+        <button ng-click="guessWho.submit()">Submit</button>
+        <div>
+            <img ng-repeat="person in guessWho.persons" ng-click="guessWho.imageClicked(person.name)" ng-src="https://github.com/{{person.github}}.png?size=80">
+        </div>
     </div>
     
     
