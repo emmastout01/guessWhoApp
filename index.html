@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -8,20 +9,22 @@
     <link rel="stylesheet" href="styles/style.css">
     <title>Guess Who with Angular!</title>
 </head>
-<body ng-app='guessWhoApp'>
-    <h1>Hello World</h1>
 
+<body ng-app='guessWhoApp'>
     <div ng-controller="guessWhoController as guessWho">
-        <p>{{guessWho.message}}</p>
-        <input ng-model="guessWho.name" type="text">
-        <input ng-model="guessWho.github" type="text">
-        <button ng-click="guessWho.submit()">Submit</button>
-        <div>
-            <img ng-repeat="person in guessWho.persons" ng-click="guessWho.imageClicked(person.name)" ng-src="https://github.com/{{person.github}}.png?size=80">
+        <div ng-init="guessWho.randomPerson(guessWho.persons)">
+            <h1>{{guessWho.message}}</h1>
+            <input ng-model="guessWho.name" type="text">
+            <!--Here, if we have created the empty personToAdd object,
+        then we put ng-model ="guessWho.personToAdd.name" -->
+            <input ng-model="guessWho.github" type="text">
+            <button ng-click="guessWho.addPerson()">Submit</button>
+            <div>
+                <img ng-show=person.show ng-repeat="person in guessWho.persons" ng-click="guessWho.imageClicked(person)" ng-src="https://github.com/{{person.github}}.png?size=80">
+            </div>
         </div>
     </div>
-    
-    
-    
+
 </body>
+
 </html>
